@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "ecommerceTestRegression": "npx cucumber-js --config config/cucumber.js --tags \"@Regression\" --exit",
-    "allure_generate": "allure generate allure-results --clean -o allure-report",
-    "allure_open": "allure open allure-report"
+    "ecommerceTestRegression": "npx cucumber-js --config config/cucumber.js --tags \"@Regression\" --format @cucumber/pretty-formatter --format json:allure-results/cucumber-report.json",
+    "allure_generate": "npx allure generate allure-results --clean -o allure-report",
+    "allure_open": "npx allure open allure-report"
   },
   "keywords": [],
   "author": "",

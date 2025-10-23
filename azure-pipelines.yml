@@ -1,0 +1,59 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  nodeVersion: '22.x'
+  allure_results: 'allure-results'
+  allure_report: 'allure-report'
+
+steps:
+  # Install Node.js
+  - task: UseNode@1
+    inputs:
+      version: $(nodeVersion)
+    displayName: 'Install Node.js'
+
+  # Install dependencies
+  - script: |
+      npm ci
+      npx playwright install --with-deps
+    displayName: 'Install dependencies and playwright browsers'
+
+  # # Build the project
+  # - script: |
+  #     npm run build
+  #   displayName: 'Build project'
+
+  # Run tests
+  - script: |
+      npm run ecommerceTestRegression
+    displayName: 'Run playwright tests'
+
+  - script: |
+      npm run allure_generate
+    displayName: 'Run allure generate'
+
+  # # Copy project files to artifact staging directory
+  # - task: CopyFiles@2
+  #   inputs:
+  #     sourceFolder: '$(Build.SourcesDirectory)'
+  #     contents: |
+  #       src/**
+  #       public/**
+  #     targetFolder: '$(Build.ArtifactStagingDirectory)'
+  #   displayName: 'Copy project files'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(allure_report)'
+      ArtifactName: 'AllureReport'
+    displayName: 'Publish Allure Report Artifact'
+  # Publish pipeline artifact
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(allure_results)'
+      ArtifactName: 'AllureRawData'
+    displayName: 'Publish Allure Raw Results'

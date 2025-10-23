@@ -7,10 +7,14 @@ module.exports = {
       'hooks/**/*.ts' // If you have hooks
     ],
     requireModule: ['ts-node/register'],
-    format: ['allure-cucumberjs/reporter'],
+    format: [
+      '@cucumber/pretty-formatter',
+      "json:allure-results/cucumber-report.json"
+    ],
     formatOptions: {
       outputDir: 'allure-results',
     },
+    publishQuiet: true
 
    // tags: '@smoke or @regression' // Example for running specific tags
   }
