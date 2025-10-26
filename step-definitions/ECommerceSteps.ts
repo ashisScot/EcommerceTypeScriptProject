@@ -45,8 +45,8 @@ Then('Verify order is reflecting in db correctly', async function () {
            let dbConnection: DBPersistence = new sqlDBConnect();
            let orderId="68ebb713f669d6cb0a0dd9eb";
            let orderData = await dbConnection.getDataFromDB("SELECT * FROM orders WHERE order_id =?;", [orderId]);
-           console.log("Order Data from DB:", orderData);
+          console.log("Order Data from DB:", orderData);
            let dBVerificationDetails= new DBVerificationDetails();
-           dBVerificationDetails.verifyOrderDisplayedCorrectlyInDB(orderData);
+           await dBVerificationDetails.verifyOrderDisplayedCorrectlyInDB(orderData);
       
          });         

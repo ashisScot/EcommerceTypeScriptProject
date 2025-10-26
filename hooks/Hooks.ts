@@ -2,7 +2,8 @@ import { Before,After, BeforeStep, AfterStep, Status, setDefaultTimeout } from "
 import { chromium } from "@playwright/test";
 import { ShoppingPOManager } from "../pageObjects/ShoppingPageObjectManager";
 import { sqldbPoolConfig } from "../config/dbconfig";
-const allure = require('allure-cucumberjs');
+//const allure = require('allure-cucumberjs');
+import * as allure from 'allure-js-commons';
 setDefaultTimeout(60 * 1000 )
 
 //Before After will run before and after the scenario execution
@@ -19,7 +20,8 @@ Before(async function () {
 After(async function(scenario){
    // if(scenario.result?.status === "FAILED"){
        const screenshot= await this.page.screenshot({fullpage:true});
-       await allure.attachment("Screenshot",screenshot,'image/png');
+    //await allure.attachment("Screenshot",screenshot,'image/png');
+    await this.attach(screenshot,'image/png');
     //    if(sqldbPoolConfig !== null){
     //     await sqldbPoolConfig.end();
     //    }

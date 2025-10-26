@@ -6,13 +6,16 @@ module.exports = {
       'step-definitions/**/*.ts',
       'hooks/**/*.ts' // If you have hooks
     ],
-    requireModule: ['ts-node/register'],
+    requireModule: ['ts-node/register','allure-cucumberjs'],
     format: [
       '@cucumber/pretty-formatter',
-      "json:allure-results/cucumber-report.json"
+      "json:reports/cucumber-report.json",
+      "html:reports/cucumber-report.html",
+      "allure-cucumberjs/reporter",
+      
     ],
     formatOptions: {
-      outputDir: 'allure-results',
+      resultsDir:"allure-results"
     },
     publishQuiet: true
 
