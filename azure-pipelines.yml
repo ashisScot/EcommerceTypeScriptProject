@@ -22,10 +22,10 @@ steps:
       npx playwright install --with-deps
     displayName: 'Install dependencies and playwright browsers'
 
-  # # Build the project
-  # - script: |
-  #     npm run build
-  #   displayName: 'Build project'
+  # Build the project
+  - script: |
+      npx playwright install
+    displayName: 'Install Playwright Browsers'
 
   # Run tests
   - script: |
