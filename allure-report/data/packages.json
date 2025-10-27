@@ -1,1 +1,1 @@
-{"uid":"83edc06c07f9ae9e47eb6dd1b683e4e2","name":"packages","children":[{"name":"features.ECommerce.feature","children":[{"name":"User Places the order","uid":"2a87b302118c022d","parentUid":"61c48051a93c147aa0b7d0accaad5851","status":"broken","time":{"start":1761146273612,"stop":1761146291250,"duration":17638},"flaky":false,"newFailed":false,"newPassed":false,"newBroken":false,"retriesCount":8,"retriesStatusChange":true,"parameters":[],"tags":["@Regression"]}],"uid":"features.ECommerce.feature"}]}
+{"uid":"83edc06c07f9ae9e47eb6dd1b683e4e2","name":"packages","children":[]}

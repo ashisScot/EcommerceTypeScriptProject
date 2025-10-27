@@ -1,1 +1,1 @@
-{"uid":"98d3104e051c652961429bf95fa0b5d6","name":"suites","children":[{"name":"User Places the order","uid":"2a87b302118c022d","parentUid":"98d3104e051c652961429bf95fa0b5d6","status":"broken","time":{"start":1761146273612,"stop":1761146291250,"duration":17638},"flaky":false,"newFailed":false,"newPassed":false,"newBroken":false,"retriesCount":8,"retriesStatusChange":true,"parameters":[],"tags":["@Regression"]}]}
+{"uid":"98d3104e051c652961429bf95fa0b5d6","name":"suites","children":[]}
