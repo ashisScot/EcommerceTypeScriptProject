@@ -1,3 +1,4 @@
+import { expect } from "@playwright/test";
 import { sqldbPoolConfig } from "../config/dbconfig";
 import { DBPersistence } from "./DBPersistence";
 
@@ -6,8 +7,9 @@ export class sqlDBConnect implements DBPersistence{
         try{
         const[rows]=await sqldbPoolConfig.query(query,whereParams);
         return rows; 
-    }catch(err){
+    }catch(err:any){
         console.error('Error connecting to the database:', err);
+        expect(err, `Expected successful SQL query, but received error: ${err.message}`).toBeNull();
     }
     finally{
         await sqldbPoolConfig.end();
