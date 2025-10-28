@@ -18,14 +18,14 @@ steps:
 
   # Install dependencies
   - script: |
-      npx playwright install --with-deps
       npm ci
+      npx playwright install --with-deps
     displayName: 'Install dependencies and playwright browsers'
 
-  # # Build the project
-  # - script: |
-  #     npx playwright install
-  #   displayName: 'Install Playwright Browsers'
+  # Build the project
+  - script: |
+      npx playwright install
+    displayName: 'Install Playwright Browsers'
 
   # Run tests
   - script: |
