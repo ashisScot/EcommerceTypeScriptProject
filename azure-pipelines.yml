@@ -62,7 +62,7 @@ steps:
     displayName: 'Publish Cucumber Reports'
     condition: always()
 
-    -script: |
+  - script: |
       echo "Mark Pipeline Failed"
       exit 1
     displayName: 'Marked the pipeline failed'
