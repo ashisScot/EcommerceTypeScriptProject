@@ -18,23 +18,25 @@ steps:
 
   # Install dependencies
   - script: |
-      npm ci
       npx playwright install --with-deps
+      npm ci
     displayName: 'Install dependencies and playwright browsers'
 
-  # Build the project
-  - script: |
-      npx playwright install
-    displayName: 'Install Playwright Browsers'
+  # # Build the project
+  # - script: |
+  #     npx playwright install
+  #   displayName: 'Install Playwright Browsers'
 
   # Run tests
   - script: |
       npm run ecommerceTestRegression
     displayName: 'Run playwright tests'
+    continueOnError: true
 
   - script: |
       npm run report
     displayName: 'Generate Cucumber HTML Report'
+    condition: always()
 
   # # Copy project files to artifact staging directory
   # - task: CopyFiles@2
@@ -58,3 +60,10 @@ steps:
       ArtifactName: 'CucumberReports'
       publishLocation: 'Container'
     displayName: 'Publish Cucumber Reports'
+    condition: always()
+
+    -script: |
+      echo "Mark Pipeline Failed"
+      exit 1
+    displayName: 'Marked the pipeline failed'
+    condition: failed()
