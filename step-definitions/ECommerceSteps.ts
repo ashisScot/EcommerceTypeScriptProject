@@ -5,7 +5,7 @@ import { sqlDBConnect } from "../utils_ts/sqlDbConnect";
 import { DBVerificationDetails } from "../utils_ts/DBVerificationDetails";
  Given('User login to ecommerce Application', async function () {
            // Write code here that turns the phrase above into concrete actions
-           await this.page.goto("https://rahulshettyacademy.com/client")
+           await this.page.goto(EcommerceTestData.appUrl);
             let loginPage = this.shoppingPOManager.loginPO;
             await loginPage.login(EcommerceTestData.loginCredentials.username,EcommerceTestData.loginCredentials.password)
 
