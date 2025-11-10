@@ -6,7 +6,8 @@
     "ecommerceTestRegression": "npx cucumber-js --config config/cucumber.js --tags \"@Regression\" --format @cucumber/pretty-formatter --exit",
     "allure_generate": "npx allure generate allure-results --clean -o allure-report",
     "allure_open": "npx allure open allure-report",
-    "report": "node config/generate-cucumber-report.js"
+    "report": "node config/generate-cucumber-report.js",
+    "apitestRegression": "npx cucumber-js --config config/cucumber.js --tags \"@API\" --format @cucumber/pretty-formatter --exit"
   },
   "keywords": [],
   "author": "",
