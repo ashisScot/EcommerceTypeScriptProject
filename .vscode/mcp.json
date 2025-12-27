@@ -1,14 +1,22 @@
 {
-  "servers": {
-    "playwright-test": {
-      "type": "stdio",
-      "command": "npx",
-      "args": [
-        "playwright",
-        "run-test-mcp-server"
-      ],
-      "cwd": "${workspaceFolder}"
-    }
-  },
-  "inputs": []
+	"servers": {
+		"playwright-test": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"run-test-mcp-server"
+			],
+			"cwd": "${workspaceFolder}"
+		},
+		"my-mcp-server-customNew": {
+			"type": "stdio",
+			"command": "npm",
+			"args": [
+				"run",
+				"dev:mcp"
+			]
+		}
+	},
+	"inputs": []
 }

@@ -42,11 +42,9 @@ Then('verify order displayed in order summary Page', async function () {
 
 Then('Verify order is reflecting in db correctly', async function () {
            // Write code here that turns the phrase above into concrete actions
-           let dbConnection: DBPersistence = new sqlDBConnect();
            let orderId="68ebb713f669d6cb0a0dd9eb";
-           let orderData = await dbConnection.getDataFromDB("SELECT * FROM orders WHERE order_id =?;", [orderId]);
-          console.log("Order Data from DB:", orderData);
            let dBVerificationDetails= new DBVerificationDetails();
+          let orderData= await dBVerificationDetails.getOrderDetailsFromDB(orderId);
            await dBVerificationDetails.verifyOrderDisplayedCorrectlyInDB(orderData);
       
          });         
